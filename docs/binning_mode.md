@@ -27,7 +27,7 @@ The table below should give an overview about the maximal resolutions of the sen
 |               | 2                  |      2 x 2      | 2016 x 1520 | 2 pixels horizontal <br> 2 pixels vertical |
 |               | 3                  |      4 x 2      |  992 x 1520 | 4 pixels horizontal <br> 2 pixels vertical |
 |               | 4                  |      8 x 2      |  480 x 1520 | 8 pixels horizontal <br> 2 pixels vertical |
-|               | 5                  |     16 x 2      |  224 x 1520 | 16 pixels horizontal <br> 2 pixels vertical <br>  extended binning |
+|               | 5                  |     16 x 2      |  224 x 1520 | 16 pixels horizontal <br> 2 pixels vertical <br>  extended binning <br> **currently not selectable**, see note below |
 | IMX565        | 0                  |      0 x 0      | 4128 x 3000 | no binning at all |
 |               | 1                  |      2 x 2      | 2048 x 1504 | 2 pixels horizontal <br> 2 pixels vertical |
 | IMX566        | 0                  |      0 x 0      | 2848 x 2848 | no binning at all |
@@ -36,9 +36,14 @@ The table below should give an overview about the maximal resolutions of the sen
 |               | 1                  |      2 x 2      | 1216 x 1032 | 2 pixels horizontal <br> 2 pixels vertical |
 
 
-It is also possible to set a ROI in combination with the binning modes. The width must be a multiple of 32 pixels and the height must be a multiple of 8. Both values must be less than the maximal values given in the table above. Please see also **[ROI cropping](ROI_CROPPING.md)**
+It is also possible to set a ROI in combination with the binning modes. The width must be a multiple of 32 pixels and the height must be a multiple of 8. Both values must be less than the maximal values given in the table above. Please see also **[ROI cropping](cropping.md)**
 
 When binning with Pregius S (IMX56x), the sensor is getting monochrome.
+
+The binning mode can also be changed during streaming with the [Live ROI](live_roi.md) control: its first digit is the binning index.
+
+> [!NOTE]
+> The `binning_mode` control currently accepts values from 0 to 4 only. The IMX412 binning mode 5 (16 x 2) is defined in the driver but cannot be selected yet.
 
 ## Examples
 ### V4L
@@ -56,4 +61,4 @@ $ v4l2-ctl -d <SUBDEV> --set-fmt-video=width=2016,height=1520 -c binning_mode=2
 
 <br>
 
-For setting the offset, refer to [Roi Position](./roi_position.md)
+For setting the offset, refer to [Live ROI](./live_roi.md)

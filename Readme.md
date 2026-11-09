@@ -7,6 +7,45 @@ Downloads are available under
 
 For mechanical installation see [Mechanical installation manual](https://github.com/VC-MIPI-modules/vc_mipi_core/blob/raspberrypi/develop/doc/mechanical_setup.md)
 
+# Supported Sensors
+The following VC MIPI sensor modules are supported by the driver. Mono and color variants use the
+same driver; the color variant carries the suffix `C` (e.g. IMX568C).
+Module availability as listed in the [VC MIPI module overview](https://www.mipi-modules.com/mipi-kameramodule-technische-daten/).
+
+| Sensor | Mono | Color | Manufacturer | Resolution (W × H) | Megapixel | Sensor family | Shutter | MIPI lanes | Formats | Binning |
+|--------|------|-------|--------------|--------------------|-----------|---------------|---------|------------|---------|:-------:|
+| IMX178 | IMX178 | –       | Sony | 3072 × 2048 | 6.3  | Starvis   | Rolling / Global Reset | 2, 4 | RAW8, RAW10, RAW12, RAW14 | |
+| IMX183 | IMX183 | IMX183C | Sony | 5440 × 3648 | 20.2 | Exmor R   | Rolling / Global Reset | 2, 4 | RAW8, RAW10, RAW12 | |
+| IMX226 | IMX226 | IMX226C | Sony | 3904 × 3000 | 12.4 | Starvis   | Rolling / Global Reset | 2, 4 | RAW8, RAW10, RAW12 | |
+| IMX250 | IMX250 | IMX250C | Sony | 2432 × 2048 | 5.0  | Pregius   | Global  | 2, 4 | RAW8, RAW10, RAW12 | |
+| IMX252 | IMX252 | IMX252C | Sony | 2048 × 1536 | 3.2  | Pregius   | Global  | 2, 4 | RAW8, RAW10, RAW12 | |
+| IMX264 | IMX264 | IMX264C | Sony | 2432 × 2048 | 5.1  | Pregius   | Global  | 2    | RAW8, RAW10, RAW12 | |
+| IMX265 | IMX265 | IMX265C | Sony | 2048 × 1536 | 3.2  | Pregius   | Global  | 2    | RAW8, RAW10, RAW12 | |
+| IMX273 | IMX273 | IMX273C | Sony | 1440 × 1080 | 1.6  | Pregius   | Global  | 2, 4 | RAW8, RAW10, RAW12 | ✓ |
+| IMX290 | IMX290 | IMX290C | Sony | 1920 × 1080 | 2.1  | Starvis   | Rolling | 2, 4 | RAW10, RAW12 | |
+| IMX296 | IMX296 | IMX296C | Sony | 1440 × 1080 | 1.6  | Pregius   | Global  | 1    | RAW10 | ✓ |
+| IMX297 | IMX297 | –       | Sony |  720 × 540  | 0.4  | Pregius   | Global  | 1    | RAW10 | |
+| IMX327 | –      | IMX327C | Sony | 1920 × 1080 | 2.1  | Starvis   | Rolling | 2, 4 | RAW10, RAW12 | |
+| IMX335 | IMX335 | IMX335C | Sony | 2592 × 1944 | 5.0  | Starvis   | Rolling | 2, 4 | RAW10, RAW12 | |
+| IMX392 | IMX392 | IMX392C | Sony | 1920 × 1200 | 2.3  | Pregius   | Global  | 2, 4 | RAW8, RAW10, RAW12 | |
+| IMX412 | –      | IMX412C | Sony | 4032 × 3040 | 12.3 | Starvis   | Rolling | 2, 4 | RAW10 | ✓ |
+| IMX415 | IMX415 | IMX415C | Sony | 3840 × 2160 | 8.3  | Starvis   | Rolling | 2, 4 | RAW10 | |
+| IMX462 | IMX462 | IMX462C | Sony | 1920 × 1080 | 2.1  | Starvis   | Rolling | 2, 4 | RAW10, RAW12 (2 lanes only) | |
+| IMX565 | IMX565 | IMX565C | Sony | 4128 × 3000 | 12.4 | Pregius S | Global  | 2, 4 | RAW8, RAW10, RAW12 | ✓ |
+| IMX566 | –      | IMX566C | Sony | 2848 × 2848 | 8.1  | Pregius S | Global  | 2, 4 | RAW8, RAW10, RAW12 | ✓ |
+| IMX567 | IMX567 | –       | Sony | 2464 × 2064 | 5.1  | Pregius S | Global  | 2, 4 | RAW8, RAW10, RAW12 | ✓ |
+| IMX568 | IMX568 | IMX568C | Sony | 2464 × 2064 | 5.1  | Pregius S | Global  | 2, 4 | RAW8, RAW10, RAW12 | ✓ |
+| IMX585 | IMX585 | IMX585C | Sony | 3840 × 2160 | 8.3  | Starvis 2 | Rolling | 2, 4 | RAW10, RAW12 | |
+| IMX900 | IMX900 | IMX900C | Sony | 2048 × 1536 | 3.2  | Pregius S | Global  | 2, 4 | RAW8, RAW10, RAW12 | |
+| OV7251 | OV7251 | –       | OmniVision | 640 × 480  | 0.3 | OmniPixel3-GS | Global | 1 | RAW8, RAW10 | |
+| OV9281 | OV9281 | –       | OmniVision | 1280 × 800 | 1.0 | OmniPixel3-GS | Global | 2 | RAW8, RAW10 | |
+| AR2020 | –      | AR2020C | onsemi | 5120 × 3840 | 20.0 | Hyperlux™ LP | Rolling | 2, 4 | RAW8, RAW10, RAW12 | |
+
+The resolution is the maximum image size delivered by the driver; it can differ slightly from the
+sensor's total pixel count in the module overview.
+The number of lanes must match the module and is set during installation (see [Configure the lanes](#configure-the-lanes)).
+For details on binning see [Binning mode](./docs/binning_mode.md).
+
 # Installation
 The driver is tested on 64-bit Raspberry Pi OS with Bookworm (Lite or with desktop).
 The OS can be installed by the official Raspberry Pi Imager from the Raspberry Pi Foundation.
@@ -176,6 +215,12 @@ On desktop version, first you have to switch to console mode `Ctrl + Alt + F1`
 2. [IO Mode](./docs/io_mode.md)
 3. [Trigger mode](./docs/trigger_mode.md)
 4. [Binning mode](./docs/binning_mode.md)
+5. [Frame rate](./docs/frame_rate.md)
+6. [Gain](./docs/gain.md)
+7. [Exposure, blanking, sensor info and flip](./docs/exposure.md)
+8. [Live ROI](./docs/live_roi.md)
+9. [ROI cropping](./docs/cropping.md)
+10. [Pixel format](./docs/pixelformat.md)
 
 # Known issues
 

@@ -15,7 +15,7 @@ Setting an unsupported mode number is still rejected with `-EINVAL`, whether or 
 
 Following you will find timing diagrams to illustrate the specific behavior of each mode.
 
-In all modes you can activate a trigger mode as described in [Trigger Modes](TRIGGER_MODE.md). 
+In all modes you can activate a trigger mode as described in [Trigger Modes](trigger_mode.md). 
 
 ## Disabled (0)
 In this mode the flash signal is deactivated and the trigger signal is active high.
@@ -73,5 +73,10 @@ In the table below you can find, which camera supports which flash signal in IO 
 | IMX566  |  03 |  H exp. time |  H exp. time |
 | IMX567  |  03 |  H exp. time |  H exp. time |
 | IMX568  |  04 |  H exp. time |  H exp. time |
-| OV7281  |  01 |           no |         n.a. |
+| IMX585  |  01 |          tbd |         n.a. |
+| IMX900  |  02 |          tbd |          tbd |
+| OV7251  |  01 |           no |         n.a. |
 | OV9281  |  03 |  H exp. time |         n.a. |
+| AR2020  |  01 |          tbd |         n.a. |
+
+n.a. = not available. tbd = IO is enabled in the driver, but the signal timing is not documented yet.

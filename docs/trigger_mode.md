@@ -72,8 +72,10 @@ In the table below you can find, which camera supports which trigger mode.
 | IMX567 | yes | yes | yes | yes |   - |   - |   - |   - |
 | IMX568 | yes | yes | yes | yes |   - |   - |   - |   - |
 | IMX585 |   - |   - |   - |   - |   - |   - |   - |   - |
+| IMX900 | yes | yes | yes | yes |   - |   - |   - |   - |
 | OV7251 |   - |   - |   - |   - |   - |   - |   - |   - |
 | OV9281 | yes |   - |   - |   - |   - |   - |   - |   - |
+| AR2020 |   - |   - |   - |   - |   - |   - |   - |   - |
 
 #### Note
 The overlap trigger jitter for IMX252 is between 11.7µs and 30.5µs.
